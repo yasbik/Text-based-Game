@@ -4,8 +4,6 @@ public class ItemList {
 
     private int currentItemCount;
     private Item[] itemList;
-    private int counter;
-
 
     public ItemList() {
         currentItemCount = 0;

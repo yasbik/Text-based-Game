@@ -1,10 +1,16 @@
 public class Player {
 
   private final int STARTING_HP = 10;
+  private final int MIN_DAMAGE = 1;
+  private final int MAX_DAMAGE = 8;
 
   private String name;
   private int currentHP;
   private ItemList inventory;
+
+  public ItemList getItemList() {
+    return inventory;
+  }
 
   public void setName(String name) {
     this.name = name;
@@ -28,12 +34,25 @@ public class Player {
     inventory = new ItemList();
   }
 
+  public int damageDealt() {
+    return GameData.randomRoll(MIN_DAMAGE, MAX_DAMAGE);
+  }
+
+  public int damageBonus(String element) { 
+    ItemList newList = inventory.getItemListWithElement(element);
+    return newList.itemCount();
+  }
+
+  public void takeDamage(int damageAmount) {
+    currentHP -= damageAmount;
+  }
+
   public void addItem(Item newItem) {
     inventory.addItem(newItem);
   }
 
   public String getItemsCollected() {
-    String s = "\nYou made it to the end. Your loot bag contains:\nCurrent Items:\n";
+    String s = name + "'s loot bag contains:\nCurrent Items:\n";
 
     s += inventory.toString();
     s += "\n";

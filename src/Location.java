@@ -20,12 +20,16 @@ public class Location {
     return monster;
   }
 
-  public String toString() {
-    String s = "You enter a " + name + ".\n"; 
+  public String getName() {
+    return name;
+  }
+
+  public String toString(String name) {
+    String s = name + " enters a " + this.name + ".\n"; 
 
     // check if there is a treasure
     if (hasTreasure()) {
-      s += treasure.toString();
+      s += treasure.toString(name);
     }
 
     s += "There is a " + monster.getName() + " guarding the treasure.";
@@ -35,6 +39,10 @@ public class Location {
 
   public boolean hasTreasure() {
     return treasure != null;
+  }
+
+  public Item getTreasure() {
+    return treasure;
   }
 
   public Item stealTreasure() {

@@ -39,21 +39,71 @@ public class GameController {
         for (int i = 0; i < NUMBER_OF_LOCATIONS; i++) {
 
             enterLocation(map[i]);
+
+            if (currentPlayer.getCurrentHP() <= 0) {
+                break;
+            }
+            else {
+                System.out.println("----- End of Location -----\n");
+            }
         }
 
+        System.out.println("\n" + currentPlayer.getName() + " was killed. ");
         System.out.println(currentPlayer.getItemsCollected());
 
-        System.out.println("--- The End ---");
+        System.out.println("--- The End ---\n");
     }
 
     public void enterLocation(Location newLocation) {
 
-        System.out.println(newLocation.toString());
+        int damage, damageBonus, totalDamage, damageTaken;
+        String playerName = currentPlayer.getName();
+        String monsterName = newLocation.getMonster().getName();
 
-        if (newLocation.hasTreasure()) {
+        System.out.println(newLocation.toString(playerName));
+
+        // if (newLocation.hasTreasure()) {
+        //     currentPlayer.addItem(newLocation.stealTreasure());
+        // }
+
+        System.out.println(playerName + " encounters the " + monsterName + " with a weakness to " + newLocation.getMonster().getElementWeakness() + ".");
+
+        damage = currentPlayer.damageDealt();
+        damageBonus = currentPlayer.damageBonus(newLocation.getMonster().getElementWeakness());
+
+        totalDamage = damage + damageBonus;
+
+        damageTaken = newLocation.getMonster().getDifficulty();
+
+        if (totalDamage >= newLocation.getMonster().getDifficulty()) {
+
+            System.out.println(playerName + " defeats the " + monsterName + " dealing " + damage + " plus " + damageBonus + " from elemental items.");
+
+            System.out.println(playerName + " steals the treasure " + newLocation.getTreasure().getItemName() + " of " + newLocation.getTreasure().getElement() + " from the " + newLocation.getName() + ".");
+
             currentPlayer.addItem(newLocation.stealTreasure());
+
+        }
+        else {
+            currentPlayer.takeDamage(newLocation.getMonster().getDifficulty());
+
+            System.out.println(playerName + " deals the " + monsterName + " " + damage + " plus " + damageBonus + " bonus but it is not enough.");
+
+            System.out.println(playerName + " takes " + damageTaken + " from the " + monsterName + ".");
+
         }
 
-        System.out.println(currentPlayer.getName() + " encounters the " + newLocation.getMonster().getName() + " with a weakness to " + newLocation.getMonster().getElementWeakness() + ".\n");
+
+
     }
+
+    // public void battle(Location newLocation) {
+
+    //     int damage = currentPlayer.
+
+    //     ItemList specialWeapons = currentPlayer.getItemList().getItemListWithElement(newLocation.getMonster().getElementWeakness());
+
+    //     //System.out.println("\n*****" + specialWeapons.itemCount() + "********\n");
+    // }
+
 }

@@ -12,12 +12,16 @@ public class Item {
         return this.element.equals(element);
     }
 
-    public String toString() {
-        String s = "You see a " + itemName + " sitting in the corner.\n";
+    public String toString(String name) {
+        String s = name + " sees a " + itemName + " sitting in the corner.\n";
         return s;
     }
 
     public String getItemName() {
         return itemName;
+    }
+
+    public String getElement() {
+        return element;
     }
 }
