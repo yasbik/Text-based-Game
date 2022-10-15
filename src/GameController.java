@@ -38,15 +38,22 @@ public class GameController {
         // print map information
         for (int i = 0; i < NUMBER_OF_LOCATIONS; i++) {
 
-            System.out.println(map[i].toString());
-
-            if (map[i].hasTreasure()) {
-                currentPlayer.addItem(map[i].stealTreasure());
-            }
+            enterLocation(map[i]);
         }
 
         System.out.println(currentPlayer.getItemsCollected());
 
         System.out.println("--- The End ---");
+    }
+
+    public void enterLocation(Location newLocation) {
+
+        System.out.println(newLocation.toString());
+
+        if (newLocation.hasTreasure()) {
+            currentPlayer.addItem(newLocation.stealTreasure());
+        }
+
+        System.out.println(currentPlayer.getName() + " encounters the " + newLocation.getMonster().getName() + " with a weakness to " + newLocation.getMonster().getElementWeakness() + ".\n");
     }
 }

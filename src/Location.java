@@ -28,7 +28,7 @@ public class Location {
       s += treasure.toString();
     }
 
-    s += "There is a " + monster.getName() + " guarding the treasure.\n";
+    s += "There is a " + monster.getName() + " guarding the treasure.";
 
     return s;
   }
