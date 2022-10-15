@@ -26,10 +26,6 @@ public class GameController {
         // fill array with locations
         for (int i = 0; i < NUMBER_OF_LOCATIONS; i++) {
             map[i] = new Location();
-
-            if (map[i].hasTreasure()) {
-                currentPlayer.addItem(map[i].stealTreasure());
-            }
         }
     }
 
@@ -41,8 +37,15 @@ public class GameController {
 
         // print map information
         for (int i = 0; i < NUMBER_OF_LOCATIONS; i++) {
+
             System.out.println(map[i].toString());
+
+            if (map[i].hasTreasure()) {
+                currentPlayer.addItem(map[i].stealTreasure());
+            }
         }
+
+        System.out.println(currentPlayer.getItemsCollected());
 
         System.out.println("--- The End ---");
     }

@@ -36,7 +36,7 @@ public class Player {
     String s = "\nYou made it to the end. Your loot bag contains:\nCurrent Items:\n";
 
     s += inventory.toString();
-    s += "\n\n";
+    s += "\n";
 
     return s;
 }
