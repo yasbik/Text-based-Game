@@ -1,9 +1,15 @@
 public class Item {
     
     private String itemName;
+    private String element;
 
     public Item() {
         itemName = GameData.getRandomItemName();
+        element = GameData.randomElement();
+    }
+
+    public boolean hasElement(String element) {
+        return this.element.equals(element);
     }
 
     public String toString() {

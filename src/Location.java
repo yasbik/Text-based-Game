@@ -16,6 +16,10 @@ public class Location {
     monster = new Monster(difficulty);
   }
 
+  public Monster getMonster() {
+    return monster;
+  }
+
   public String toString() {
     String s = "You enter a " + name + ".\n"; 
 
