@@ -6,12 +6,14 @@ public class Location {
   private String name;
   private int difficulty;
   private Item treasure;
+  private Monster monster;
 
 
   public Location() {
     name = GameData.getRandomLocationName();
     difficulty = GameData.randomRoll(MIN_DIffiCULtY, MAX_DIFFICULTY);
     treasure = new Item();
+    monster = new Monster(difficulty);
   }
 
   public String toString() {
@@ -21,6 +23,8 @@ public class Location {
     if (hasTreasure()) {
       s += treasure.toString();
     }
+
+    s += "There is a " + monster.getName() + " guarding the treasure.\n";
 
     return s;
   }
