@@ -62,10 +62,6 @@ public class GameController {
 
         System.out.println(newLocation.toString(playerName));
 
-        // if (newLocation.hasTreasure()) {
-        //     currentPlayer.addItem(newLocation.stealTreasure());
-        // }
-
         System.out.println(playerName + " encounters the " + monsterName + " with a weakness to " + newLocation.getMonster().getElementWeakness() + ".");
 
         damage = currentPlayer.damageDealt();
@@ -96,14 +92,5 @@ public class GameController {
 
 
     }
-
-    // public void battle(Location newLocation) {
-
-    //     int damage = currentPlayer.
-
-    //     ItemList specialWeapons = currentPlayer.getItemList().getItemListWithElement(newLocation.getMonster().getElementWeakness());
-
-    //     //System.out.println("\n*****" + specialWeapons.itemCount() + "********\n");
-    // }
 
 }
