@@ -8,7 +8,7 @@ public class Location {
   private Item treasure;
   private Monster monster;
 
-
+  // constructor
   public Location() {
     name = GameData.getRandomLocationName();
     difficulty = GameData.randomRoll(MIN_DIffiCULtY, MAX_DIFFICULTY);
@@ -45,6 +45,7 @@ public class Location {
     return treasure;
   }
 
+  // method to steal treasure and set it to null
   public Item stealTreasure() {
     Item temp = treasure;
     treasure = null;

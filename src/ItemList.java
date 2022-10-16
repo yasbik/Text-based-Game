@@ -5,6 +5,7 @@ public class ItemList {
     private int currentItemCount;
     private Item[] itemList;
 
+    // constructor
     public ItemList() {
         currentItemCount = 0;
         itemList = new Item[MAX_INVENTORY_SIZE];
@@ -19,6 +20,7 @@ public class ItemList {
         return currentItemCount;
     }
 
+    // method to get list of items matching an element
     public ItemList getItemListWithElement(String element) {
 
         ItemList newList = new ItemList();

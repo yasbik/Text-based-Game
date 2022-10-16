@@ -3,6 +3,7 @@ public class Item {
     private String itemName;
     private String element;
 
+    // constructor
     public Item() {
         itemName = GameData.getRandomItemName();
         element = GameData.randomElement();

@@ -22,11 +22,13 @@ public class GameData{
 	// This method returns names of monsters. 
 	// The type of monster is determined by the difficulty of the location
 	// we can use the difficulty as an index to get a monster from the list
-	public static String getMonsterNameByDifficulty(int difficulty){
+	public static String getMonsterNameByDifficulty(int difficulty) {
 		String returnMonster = "Default Monster";
-		if( difficulty >= 0 && difficulty < monsterList.length){
+
+		if ( difficulty >= 0 && difficulty < monsterList.length) {
 			returnMonster = monsterList[difficulty];
-		}else{
+		}
+		else {
 			System.out.println("ERROR1: Monster index out of range " + difficulty);
 		}
 		return returnMonster;

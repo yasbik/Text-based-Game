@@ -28,6 +28,7 @@ public class Player {
     return currentHP;
   }
 
+  // constructor
   public Player() {
     name = GameData.getRandomName();
     currentHP = STARTING_HP;
